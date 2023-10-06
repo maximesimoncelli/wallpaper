@@ -1,0 +1,12 @@
+{
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "nanoid": "^5.0.1",
+    "wallpaper": "^7.0.0"
+  },
+  "scripts": {
+    "start": "node --env-file=.env src/index.mjs"
+  }
+}
