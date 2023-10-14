@@ -2,6 +2,7 @@ import { createWriteStream, existsSync, mkdir } from 'node:fs'
 import { Readable, finished } from 'node:stream';
 import { getStream } from './getUrl.mjs';
 import { writeFile } from 'node:fs/promises';
+import { compareNewImageToAllDownloaded } from './md5sum.mjs';
 
 /**
  * 
@@ -10,12 +11,15 @@ import { writeFile } from 'node:fs/promises';
  * @returns boolean
  */
 export const download = async (url, path) => {
+    const imagePath = './downloads/' + path + '.jpg'
     if (!existsSync('./downloads')) await mkdir('./downloads')
-    if (existsSync('./downloads/' + path + '.jpg')) return false
+    if (existsSync(imagePath)) return false
 
     const response = await getStream(url);
     const buffer = Buffer.from(await response.arrayBuffer())
-    await writeFile('./downloads/' + path + '.jpg', buffer)
+    await writeFile(imagePath, buffer)
+    
+    // compareNewImageToAllDownloaded(imagePath)
 
     return true
 }

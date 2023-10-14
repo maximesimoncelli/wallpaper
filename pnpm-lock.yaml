@@ -1,0 +1,26 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  nanoid:
+    specifier: ^5.0.1
+    version: 5.0.1
+  wallpaper:
+    specifier: ^7.0.0
+    version: 7.0.0
+
+packages:
+
+  /nanoid@5.0.1:
+    resolution: {integrity: sha512-vWeVtV5Cw68aML/QaZvqN/3QQXc6fBfIieAlu05m7FZW2Dgb+3f0xc0TTxuJW+7u30t7iSDTV/j3kVI0oJqIfQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    dev: false
+
+  /wallpaper@7.0.0:
+    resolution: {integrity: sha512-PZy40Tkvb4tREX49D+DSP0xBoYa1xkbdBMyGKTAB+tHQFQxfY/0i2OW0YwF+PU4o2NBHOVf37IPLolP9gKAkxg==}
+    engines: {node: '>=16'}
+    dev: false

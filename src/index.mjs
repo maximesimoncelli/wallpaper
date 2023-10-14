@@ -4,7 +4,6 @@ import { download } from './download.mjs';
 import { getUrl } from './getUrl.mjs';
 import { resolve } from 'node:path'
 import { exit } from 'node:process';
-import { log, error as logError } from 'node:console';
 
 try {
     const fileName = nanoid()
@@ -12,17 +11,15 @@ try {
     const hasWorked = await download(imageUrl.urls.raw, fileName);
 
     if (!hasWorked) {
-        log('The file already exists ...')
+        console.log('The file already exists ...')
         exit(0)
     }
-    
-    try {
-        await setWallpaper(`./downloads/${fileName}.jpg`);
-        console.log('File has been written in ' + resolve('downloads', fileName + '.jpg',))
-        exit(0)
-    } catch (error) {
-        logError(error)
-    }
+
+    await setWallpaper(`./downloads/${fileName}.jpg`);
+    console.log('File has been written in ' + resolve('downloads', fileName + '.jpg',))
+    exit(0)
+
 } catch (error) {
-    logError(error)
+    console.error(error)
+    exit(1)
 }
