@@ -1,16 +1,8 @@
-import { createWriteStream, existsSync } from 'node:fs'
-import { Readable, finished } from 'node:stream';
+import { existsSync } from 'node:fs'
 import { getStream } from './getUrl.js';
 import { writeFile, mkdir } from 'node:fs/promises';
-import { compareNewImageToAllDownloaded } from './md5sum.js';
 
-/**
- * 
- * @param {string} url 
- * @param {string} path 
- * @returns boolean
- */
-export const download = async (url, path) => {
+export const download = async (url: any, path: string) => {
     const imagePath = './downloads/' + path + '.jpg'
     if (!existsSync('./downloads')) await mkdir('./downloads')
     if (existsSync(imagePath)) return false

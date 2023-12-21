@@ -1,12 +1,13 @@
+import { PathOrFileDescriptor } from 'fs';
 import { createHash } from 'node:crypto'
 import { readFileSync, readdir } from 'node:fs';
 
-const md5sum = (filePath) => {
+const md5sum = (filePath: PathOrFileDescriptor) => {
     const data = readFileSync(filePath);
     return createHash('md5').update(data).digest('hex');
 }
 
-export const compareNewImageToAllDownloaded = (targetImagePath) => {
+export const compareNewImageToAllDownloaded = (targetImagePath: any) => {
     const targetImageHash = md5sum(targetImagePath);
     const downloadsFolderPath = './downloads'
 
