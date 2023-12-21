@@ -1,8 +1,8 @@
-import { createWriteStream, existsSync, mkdir } from 'node:fs'
+import { createWriteStream, existsSync } from 'node:fs'
 import { Readable, finished } from 'node:stream';
-import { getStream } from './getUrl.mjs';
-import { writeFile } from 'node:fs/promises';
-import { compareNewImageToAllDownloaded } from './md5sum.mjs';
+import { getStream } from './getUrl.js';
+import { writeFile, mkdir } from 'node:fs/promises';
+import { compareNewImageToAllDownloaded } from './md5sum.js';
 
 /**
  * 

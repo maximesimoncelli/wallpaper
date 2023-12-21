@@ -1,7 +1,7 @@
 import { setWallpaper } from 'wallpaper'
 import { nanoid } from 'nanoid'
-import { download } from './download.mjs';
-import { getUrl } from './getUrl.mjs';
+import { download } from './download.js';
+import { getUrl } from './getUrl.js';
 import { resolve } from 'node:path'
 import { exit } from 'node:process';
 
