@@ -1,4 +1,4 @@
-import { PathOrFileDescriptor } from 'fs';
+import { PathOrFileDescriptor } from 'node:fs';
 import { createHash } from 'node:crypto'
 import { readFileSync, readdir } from 'node:fs';
 
@@ -12,14 +12,14 @@ export const compareNewImageToAllDownloaded = (targetImagePath: PathOrFileDescri
     const downloadsFolderPath = './downloads'
 
     // Get a list of files in the downloads folder
-    readdir(downloadsFolderPath, (err, files) => {
-        if (err) {
-            console.error(err);
+    readdir(downloadsFolderPath, (error, files) => {
+        if (error) {
+            console.error(error);
             return;
         }
 
         // Loop through each file in the folder
-        files.forEach(file => {
+        for (const file of files) {
             const filePath = `${downloadsFolderPath}/${file}`;
 
             // Check if the file is an image (you can add more image file extensions if needed)
@@ -34,6 +34,6 @@ export const compareNewImageToAllDownloaded = (targetImagePath: PathOrFileDescri
                     console.log(`Image do not match: ${file}`);
                 }
             }
-        });
+        }
     });
 }

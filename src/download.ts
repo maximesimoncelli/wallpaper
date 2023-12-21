@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { getStream } from './getUrl.js';
+import { getStream } from './get-url.js';
 import { writeFile, mkdir } from 'node:fs/promises';
 
 export const download = async (url: string, path: string) => {
@@ -11,7 +11,7 @@ export const download = async (url: string, path: string) => {
     const buffer = Buffer.from(await response.arrayBuffer())
     await writeFile(imagePath, buffer)
     
-    // compareNewImageToAllDownloaded(imagePath)
+    // TODO: compareNewImageToAllDownloaded(imagePath)
 
     return true
 }
