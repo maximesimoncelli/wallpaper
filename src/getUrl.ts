@@ -18,20 +18,21 @@ const _fetch = async (url: string | URL | Request) => {
  * @param {string} url 
  * @returns Promise<any>
  */
-export const getUrl = async (url: string) => {
+export const getUrl = async <T>(url: string): Promise<T> => {
     const response = await _fetch(url)
 
     if (!response.ok) {
         throw new Error(await response.text())
     }
-    return response.json()
+    const json = response.json() as T
+    return json
 }
 
 /**
  * @param {string} url 
  * @returns Promise<Response>
  */
-export const getStream = async (url: any) => {
+export const getStream = async (url: string): Promise<Response> => {
     const response = await _fetch(url)
     
     if (!response.ok) {

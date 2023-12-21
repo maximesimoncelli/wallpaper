@@ -9,10 +9,15 @@
   },
   "scripts": {
     "start": "node --env-file=.env dist/index.js",
-    "build": "rimraf ./dist && tsc"
+    "lint": "pnpm eslint .",
+    "build": "pnpm lint & rimraf ./dist && tsc"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
-    "rimraf": "^5.0.5"
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
   }
 }

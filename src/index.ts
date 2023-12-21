@@ -4,10 +4,11 @@ import { download } from './download.js';
 import { getUrl } from './getUrl.js';
 import { resolve } from 'node:path'
 import { exit } from 'node:process';
+import { GetImageURLResponse } from './types/unsplash.js';
 
 try {
     const fileName = nanoid()
-    const imageUrl = await getUrl('https://api.unsplash.com/photos/random?query="nature fog"&orientation=landscape');
+    const imageUrl = await getUrl<GetImageURLResponse>('https://api.unsplash.com/photos/random?query="nature fog"&orientation=landscape');
     const hasWorked = await download(imageUrl.urls.raw, fileName);
 
     if (!hasWorked) {

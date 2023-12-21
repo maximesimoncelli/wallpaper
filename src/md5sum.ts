@@ -7,7 +7,7 @@ const md5sum = (filePath: PathOrFileDescriptor) => {
     return createHash('md5').update(data).digest('hex');
 }
 
-export const compareNewImageToAllDownloaded = (targetImagePath: any) => {
+export const compareNewImageToAllDownloaded = (targetImagePath: PathOrFileDescriptor) => {
     const targetImageHash = md5sum(targetImagePath);
     const downloadsFolderPath = './downloads'
 
